@@ -7,3 +7,4 @@ export type SubComponent = { c: string; var?: string };
 export type Components = Array<RootComponent>;
 
 export { parse } from './parse.js';
+export { serialize } from './serialize.js';

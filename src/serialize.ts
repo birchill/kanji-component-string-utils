@@ -1,6 +1,6 @@
 import type { Components, RootComponent, SubComponent } from './index.js';
 
-export function serializeComponents(components: Components): string {
+export function serialize(components: Components): string {
   return components.map(serializeComponent).join('');
 }
 
