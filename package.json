@@ -5,6 +5,7 @@
   "author": "Birchill, Inc.",
   "scripts": {
     "build": "tsup",
+    "verify": "tsc --noEmit",
     "test": "vitest run",
     "prepare": "tsup",
     "postinstall": "husky"

@@ -1,6 +1,6 @@
 import { expect, test, describe } from 'vitest';
 
-import { parse } from './parse'; // Assuming the parser is in a file named parser.ts
+import { parse } from './parse.js'; // Assuming the parser is in a file named parser.ts
 
 describe('parse function', () => {
   test('parses a single character', () => {
