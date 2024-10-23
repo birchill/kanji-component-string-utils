@@ -19,9 +19,7 @@ jobs:
           cache: pnpm
 
       - name: Build
-        run: |
-          pnpm install
-          pnpm build
+        run: pnpm install
 
       - name: Unit tests
         run: pnpm test
