@@ -7,8 +7,7 @@
     "build": "tsup",
     "verify": "tsc --noEmit",
     "test": "vitest run",
-    "prepare": "tsup",
-    "postinstall": "husky"
+    "prepare": "husky && tsup"
   },
   "repository": {
     "type": "git",
