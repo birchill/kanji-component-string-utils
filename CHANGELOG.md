@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0 (2025-04-01)
+
+### ⚠ BREAKING CHANGES
+
+* The "*" character is now treated as a special character
+meaning "the preceding component is the radical for this character".
+* The `SubComponent` type is now called `BaseComponent`.
+
+### Features
+
+* added parsing for radical indicators ("*") ([a012b57](https://github.com/birchill/kanji-component-string-utils/commit/a012b57af6a6322745e8695c6d0d682d8e13fca8))
+
 ## [1.0.1](https://github.com/birchill/kanji-component-string-utils/compare/v1.0.0...v1.0.1) (2024-10-23)
 
 ### Bug Fixes

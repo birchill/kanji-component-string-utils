@@ -1,6 +1,6 @@
 {
   "name": "@birchill/kanji-component-string-utils",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Serialization/deserialization of kanji component information",
   "author": "Birchill, Inc.",
   "scripts": {
