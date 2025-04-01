@@ -46,6 +46,22 @@ describe('parse function', () => {
     ]);
   });
 
+  test('parses a radical indicator', () => {
+    const result = parse('前[丷㇐⽉⺉]⼑*');
+    expect(result).toEqual([
+      { c: '前', sub: [{ c: '丷' }, { c: '㇐' }, { c: '⽉' }, { c: '⺉' }] },
+      { c: '⼑', is_rad: true },
+    ]);
+  });
+
+  test('parses a radical indicator in a sub-component', () => {
+    const result = parse('⼝{030-hen}兄[⼝*⼉]');
+    expect(result).toEqual([
+      { c: '⼝', var: '030-hen' },
+      { c: '兄', sub: [{ c: '⼝', is_rad: true }, { c: '⼉' }] },
+    ]);
+  });
+
   test('handles non-BMP characters', () => {
     const result = parse('𠮷{056-kanmuri}[⼠⼝]');
     expect(result).toEqual([
@@ -53,16 +69,25 @@ describe('parse function', () => {
     ]);
   });
 
-  test('throws error on invalid variant format', () => {
+  test('throws on invalid variant format', () => {
     expect(() => parse('⼁{30}')).toThrow('Invalid variant format');
   });
 
-  test('throws error on unclosed subcomponent bracket', () => {
+  test('throws on unclosed subcomponent bracket', () => {
     expect(() => parse('⼁[⼠⼝')).toThrow('Unclosed subcomponent bracket');
     expect(() => parse('⼁[')).toThrow('Unclosed subcomponent bracket');
   });
 
-  test('handles empty string', () => {
+  test('throws on invalid placement of radical indicator', () => {
+    expect(() => parse('⼝{030-hen}*兄[⼝⼉]')).toThrow(
+      'Invalid radical indicator'
+    );
+    expect(() => parse('⼝{030-hen}兄[⼝⼉]*')).toThrow(
+      'Invalid radical indicator'
+    );
+  });
+
+  test('handles an empty string', () => {
     const result = parse('');
     expect(result).toEqual([]);
   });

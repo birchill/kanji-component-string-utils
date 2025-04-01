@@ -1,4 +1,4 @@
-import type { Components, RootComponent, SubComponent } from './index.js';
+import type { BaseComponent, Components, RootComponent } from './index.js';
 
 export function serialize(components: Components): string {
   return components.map(serializeComponent).join('');
@@ -6,6 +6,9 @@ export function serialize(components: Components): string {
 
 function serializeComponent(component: RootComponent): string {
   let result = component.c;
+  if (component.is_rad) {
+    result += '*';
+  }
   if (component.var) {
     result += `{${component.var}}`;
   }
@@ -15,8 +18,11 @@ function serializeComponent(component: RootComponent): string {
   return result;
 }
 
-function serializeSubComponent(component: SubComponent): string {
+function serializeSubComponent(component: BaseComponent): string {
   let result = component.c;
+  if (component.is_rad) {
+    result += '*';
+  }
   if (component.var) {
     result += `{${component.var}}`;
   }
