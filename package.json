@@ -15,7 +15,11 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
-    "access": "public"
+    "access": "public",
+    "engines": {}
+  },
+  "engines": {
+    "pnpm": ">=11"
   },
   "bugs": {
     "url": "https://github.com/birchill/kanji-component-string-utils/issues"
